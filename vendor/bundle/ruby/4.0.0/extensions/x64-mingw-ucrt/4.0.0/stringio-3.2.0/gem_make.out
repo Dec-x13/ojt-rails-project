@@ -1,0 +1,20 @@
+current directory: c:/Users/Admin/Documents/MyProjects/Ruby/ojt-rails-project/vendor/bundle/ruby/4.0.0/gems/stringio-3.2.0/ext/stringio
+C:/Ruby40-x64/bin/ruby.exe extconf.rb
+checking for rb_io_mode_t in ruby/io.h... yes
+creating Makefile
+
+current directory: c:/Users/Admin/Documents/MyProjects/Ruby/ojt-rails-project/vendor/bundle/ruby/4.0.0/gems/stringio-3.2.0/ext/stringio
+make -j13 DESTDIR\= sitearchdir\=./.gem.20260529-31716-w7cwer sitelibdir\=./.gem.20260529-31716-w7cwer clean
+
+current directory: c:/Users/Admin/Documents/MyProjects/Ruby/ojt-rails-project/vendor/bundle/ruby/4.0.0/gems/stringio-3.2.0/ext/stringio
+make -j13 DESTDIR\= sitearchdir\=./.gem.20260529-31716-w7cwer sitelibdir\=./.gem.20260529-31716-w7cwer
+generating stringio-x64-mingw-ucrt.def
+compiling stringio.c
+linking shared-object stringio.so
+
+current directory: c:/Users/Admin/Documents/MyProjects/Ruby/ojt-rails-project/vendor/bundle/ruby/4.0.0/gems/stringio-3.2.0/ext/stringio
+make -j13 DESTDIR\= sitearchdir\=./.gem.20260529-31716-w7cwer sitelibdir\=./.gem.20260529-31716-w7cwer install
+/usr/bin/install -c -m 0755 stringio.so ./.gem.20260529-31716-w7cwer
+
+current directory: c:/Users/Admin/Documents/MyProjects/Ruby/ojt-rails-project/vendor/bundle/ruby/4.0.0/gems/stringio-3.2.0/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20260529-31716-w7cwer sitelibdir\=./.gem.20260529-31716-w7cwer clean
