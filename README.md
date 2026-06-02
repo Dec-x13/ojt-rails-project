@@ -21,7 +21,7 @@ If you want to read my in-depth daily reflections, roadblocks, and lightbulb mom
 - [x] **Day 2:** Core Data Structures (Arrays & Hashes) and Iterative Logic.
 - [x] **Day 3:** Enumerables (`map`, `select`, `reduce`) — this cleaned up my code so much.
 - [x] **Day 4:** Object-Oriented Programming (Classes, State Management).
-- [ ] **Day 5:** Advanced Ruby & writing RSpec Tests.
+- [x] **Day 5:** Advanced Ruby & writing RSpec Tests.
 
 **Phase 2: Full-Stack Rails**
 - [ ] **Day 6:** Firing up the Rails app, Routing, and PostgreSQL.
