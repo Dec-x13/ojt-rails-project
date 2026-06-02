@@ -45,11 +45,14 @@ If you want to pull this down and test the standalone Ruby scripts on your machi
 
 1. **Clone it:**
 ```bash
-   git clone [https://github.com/Dec-x13/ojt-rails-project.git](https://github.com/Dec-x13/ojt-rails-project.git)
+   git clone https://github.com/Dec-x13/ojt-rails-project.git
    cd ojt-rails-project
+```
 2. **Check your Ruby version (v3.0+ is recommended):**
 ```bash
    ruby -v
+```
 3. **Run a script:**
 ```bash
    ruby path/to/script_name.rb
+```
