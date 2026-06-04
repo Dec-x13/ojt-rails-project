@@ -1,23 +1,66 @@
-<div class="max-w-3xl mx-auto mt-10">
-  <div class="flex items-center justify-between mb-8">
-    <h1 class="text-4xl font-extrabold text-gray-900">My Tasks</h1>
-    <%= link_to "New Task", new_task_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg shadow transition duration-200" %>
+<%= turbo_frame_tag "modal" %>
+<div class="min-h-screen bg-slate-50 font-sans pb-16">
+  
+  <header class="bg-[#041E42] text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="text-blue-400 font-extrabold text-2xl tracking-tighter">
+          &lt;/&gt;
+        </div>
+        <span class="text-xl font-bold tracking-wide">TechNavy<span class="font-light">Tasks</span></span>
+      </div>
+      <nav class="hidden sm:block text-sm font-medium space-x-6">
+        <a href="https://github.com/Dec-x13/ojt-rails-project/tree/51a9704fc7b959030b7359c5c8df33149f364327/task_manager" class="hover:text-blue-300 transition-colors">Dec-x13</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="max-w-4xl mx-auto text-center mt-16 mb-16 px-4">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-[#041E42] mb-4 tracking-tight">
+      Task Manager App<span class="text-blue-500"> With Tailwind CSS</span>
+    </h1>
+    <p class="text-slate-500 text-lg mb-8 max-w-2xl mx-auto">
+      Centralized digital task management built for scalability, seamless connectivity, and data-driven governance.
+    </p>
+    <div>
+       <%= link_to "Create New Task", new_task_path, data: { turbo_frame: "modal" }, class: "bg-[#041E42] hover:bg-blue-900 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-200" %>
+    </div>
   </div>
 
-  <div class="space-y-4">
-    <% @tasks.each do |task| %>
-      <div class="bg-white border border-gray-200 rounded-xl shadow-sm p-6 flex flex-col hover:shadow-md transition duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-center text-3xl font-extrabold text-[#041E42] uppercase tracking-wider mb-12">
+      TASKS:
+    </h2>
+
+    <div class="flex flex-col space-y-4">
+      <% @tasks.each do |task| %>
         
-        <div class="flex justify-between items-start">
-          <div>
-            <h2 class="text-xl font-bold text-gray-800 mb-2"><%= task.title %></h2>
-            <p class="text-gray-600"><%= task.description %></p>
+        <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 flex overflow-hidden border border-slate-200">
+          
+          <div class="w-2 shrink-0 <%= cycle('bg-[#041E42]', 'bg-yellow-400') %>"></div>
+
+          <div class="p-5 flex-grow flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+            
+            <div class="flex-grow">
+              <h3 class="text-lg font-bold text-slate-900 mb-1"><%= task.title %></h3>
+              <p class="text-slate-500 text-sm leading-relaxed max-w-3xl">
+                <%= task.description %>
+              </p>
+            </div>
+
+            <div class="flex items-center gap-6 shrink-0 sm:pl-6 sm:border-l sm:border-slate-100">
+              <%= link_to "Edit", edit_task_path(task), data: { turbo_frame: "modal" }, class: "text-sm font-bold text-blue-600 hover:text-blue-800 transition-colors px-2 py-1" %>
+              
+              <%= button_to "Delete ➝", task_path(task), method: :delete, data: { turbo_confirm: "Are you sure you want to remove this record?" }, class: "text-sm font-bold text-red-600 hover:text-red-800 transition-colors px-2 py-1" %>
+            </div>
+            
           </div>
           
-          <%= button_to "Delete", task_path(task), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "text-red-600 hover:text-red-800 font-semibold text-sm py-1 px-3 border border-red-200 hover:bg-red-50 rounded transition duration-200" %>
         </div>
 
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
+  </div>
+
 </div>
