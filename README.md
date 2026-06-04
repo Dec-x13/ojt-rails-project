@@ -24,7 +24,7 @@ If you want to read my in-depth daily reflections, roadblocks, and lightbulb mom
 - [x] **Day 5:** Advanced Ruby & writing RSpec Tests.
 
 **Phase 2: Full-Stack Rails**
-- [ ] **Day 6:** Firing up the Rails app, Routing, and PostgreSQL.
+- [x] **Day 6:** Firing up the Rails app, Routing, and PostgreSQL.
 - [ ] **Day 7:** Controllers, Views, and making things look good with Tailwind.
 - [ ] **Day 8:** Active Record, Migrations, and Model relationships.
 - [ ] **Day 9:** Forms, Sessions, and User Authentication.
