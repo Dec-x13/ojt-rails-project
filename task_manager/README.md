@@ -4,12 +4,13 @@ Hey! This is my first full-stack application built during my 10-day OJT. I trans
 
 ## What I Built
 
-Instead of building a traditional multi-page app or using heavy client-side JavaScript, I used this project to dive deep into Hotwire and Turbo Frames to make it feel like a modern Single Page Application (SPA).
+Instead of building a traditional multi-page app or using heavy client-side JavaScript, I used this project to dive deep into Hotwire and Turbo Frames to make it feel like a modern Single Page Application (SPA), while building a robust relational database under the hood.
 
+* **Relational Data & Associations:** Upgraded the flat database structure by adding a `Comment` model. I utilized Active Record `has_many` and `belongs_to` associations to link comments directly to specific tasks, creating a functional "System Notes" feature on the dashboard.
+* **Server-Side Validations:** Implemented Active Record validations (e.g., `presence: true`) to ensure data integrity and prevent empty notes or bad data from ever hitting the PostgreSQL database.
+* **Nested Routing:** Configured nested resourceful routing so that all comment creations and deletions are securely tied to their parent task's ID at the network level.
 * **Zero-JS Modals:** I used Turbo Frames to handle the Create and Edit forms. When you click a button, it intercepts the request and pops up a modal right over the homepage without writing any custom JavaScript or managing state hooks.
-* **DRY Code:** I extracted the form fields into a reusable partial (`_form.html.erb`) so both my New and Edit modals share the exact same view code.
-* **Enterprise UI:** I completely overhauled the standard grid layout into a horizontal, highly scannable list view inspired by the TechNavy Phil dashboard. I used Tailwind CSS to style everything, utilizing native Rails helpers to alternate border colors and keep the UI looking professional.
-* **Security:** I implemented the new Rails 8 Strong Parameters (`params.expect`) to strictly whitelist data before it ever touches my database.
+* **Enterprise UI:** I completely overhauled the standard grid layout into a horizontal, highly scannable list view inspired by enterprise B2B dashboards. I used Tailwind CSS to style everything, utilizing native Rails helpers to alternate border colors and keep the UI looking professional.
 
 ## Tech Stack
 
