@@ -25,8 +25,8 @@ If you want to read my in-depth daily reflections, roadblocks, and lightbulb mom
 
 **Phase 2: Full-Stack Rails**
 - [x] **Day 6:** Firing up the Rails app, Routing, and PostgreSQL.
-- [ ] **Day 7:** Controllers, Views, and making things look good with Tailwind.
-- [ ] **Day 8:** Active Record, Migrations, and Model relationships.
+- [x] **Day 7:** Controllers, Views, and making things look good with Tailwind.
+- [x] **Day 8:** Active Record, Migrations, and Model relationships.
 - [ ] **Day 9:** Forms, Sessions, and User Authentication.
 - [ ] **Day 10:** Finalizing the Event Manager mini-project.
 
@@ -40,7 +40,10 @@ Phase 1: Before jumping into the heavy Rails framework, I built a few CLI script
 * **Text Parsers:** Wrote a Caesar Cipher and a Substring dictionary scanner. Coming from C++, seeing how fast Ruby parses text with `.scan` is honestly wild.
 
 Phase 2:
-* **Task Manager (Rails):** My first full-stack Rails application! Developed in a WSL environment, backed by PostgreSQL, and utilizing the MVC (Model-View-Controller) architecture with RESTful routing.
+* **Task Manager (Rails):** My first full-stack Rails application! Developed in a WSL environment and backed by PostgreSQL. Instead of a traditional multi-page app, I engineered this to feel like a modern Single Page Application (SPA).
+  * **Hotwire & Turbo:** Utilized Turbo Frames to build zero-JavaScript asynchronous Create/Edit modals.
+  * **Relational Data:** Designed a `has_many` / `belongs_to` database architecture to link a "System Notes" feature directly to individual tasks.
+  * **Tailwind CSS:** Fully styled from scratch with utility classes, featuring a responsive, horizontal enterprise list UI.
 
 ## How to run this locally
 
@@ -71,7 +74,7 @@ Note: You will need PostgreSQL installed and running on your machine
 ```
 4. **Boot the local server:**
 ```bash
-   bin/rails server
+   bin/dev
 ```
 5. **View the app:**
 Open your web browser and navigate to http://localhost:3000.
