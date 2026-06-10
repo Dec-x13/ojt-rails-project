@@ -32,6 +32,15 @@ class TasksController < ApplicationController
     end
   end
 
+  def toggle
+    @task = Task.find(params[:id])
+    # This flips the boolean to the opposite of whatever it currently is
+    @task.update(completed: !@task.completed)
+
+    # Redirect back to where they clicked it from
+    redirect_back(fallback_location: tasks_path)
+  end
+
   def destroy
     @task = Task.find(params[:id])
     @task.destroy

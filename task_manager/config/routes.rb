@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   post "login", to: "sessions#create"
   delete "logout", to: "sessions#destroy"
   resources :tasks do
+    member do
+      patch :toggle
+    end
     # Creates URLs
     resources :comments, only: [ :create, :destroy ]
   end
