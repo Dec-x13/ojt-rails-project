@@ -8,7 +8,7 @@ If you want to read my in-depth daily reflections, roadblocks, and lightbulb mom
 
 ## Tech Stack
 
-* **Language:** Ruby
+* **Language:** Ruby (Securely compiled with `bcrypt`)
 * **Framework:** Ruby on Rails
 * **Database:** PostgreSQL
 * **Environment:** WSL(Ubuntu)
@@ -27,7 +27,7 @@ If you want to read my in-depth daily reflections, roadblocks, and lightbulb mom
 - [x] **Day 6:** Firing up the Rails app, Routing, and PostgreSQL.
 - [x] **Day 7:** Controllers, Views, and making things look good with Tailwind.
 - [x] **Day 8:** Active Record, Migrations, and Model relationships.
-- [ ] **Day 9:** Forms, Sessions, and User Authentication.
+- [x] **Day 9:** Forms, Sessions, and User Authentication.
 - [ ] **Day 10:** Finalizing the Event Manager mini-project.
 
 ## Projects Inside
@@ -40,10 +40,11 @@ Phase 1: Before jumping into the heavy Rails framework, I built a few CLI script
 * **Text Parsers:** Wrote a Caesar Cipher and a Substring dictionary scanner. Coming from C++, seeing how fast Ruby parses text with `.scan` is honestly wild.
 
 Phase 2:
-* **Task Manager (Rails):** My first full-stack Rails application! Developed in a WSL environment and backed by PostgreSQL. Instead of a traditional multi-page app, I engineered this to feel like a modern Single Page Application (SPA).
-  * **Hotwire & Turbo:** Utilized Turbo Frames to build zero-JavaScript asynchronous Create/Edit modals.
-  * **Relational Data:** Designed a `has_many` / `belongs_to` database architecture to link a "System Notes" feature directly to individual tasks.
-  * **Tailwind CSS:** Fully styled from scratch with utility classes, featuring a responsive, horizontal enterprise list UI.
+* **Task Manager (Rails):** A complete web application engineered to feel like a modern Single Page Application (SPA). It uses crisp, block-level dashboard cards styled around a structured "TechNavy" theme.
+  * **Custom Authentication:** Developed a secure, session-based login and logout system from scratch using `bcrypt` to hash passwords and protect endpoints via controller filters (`before_action :require_login`).
+  * **State Management Toggle:** Added database state tracking by implementing an interactive task completion checkbox. Clicking the toggle hits a custom member route patch action to instantly invert the database record and update styling on the fly.
+  * **Hotwire & Turbo:** Implemented zero-JavaScript asynchronous Create/Edit modals via Turbo Frames, coupled with responsive HTML5 expand/collapse data blocks to display information without page reloads.
+  * **Relational Data & Strong Params:** Structured a `has_many` / `belongs_to` database association allowing an interactive "System Notes" feed to look up and attach comment fragments securely to parent tasks.
 
 ## How to run this locally
 
@@ -57,7 +58,7 @@ If you want to pull this down and test the standalone Ruby scripts on your machi
 
 ## Running the Rails App (Task Manager)
 
-Note: You will need PostgreSQL installed and running on your machine
+Note: You will need PostgreSQL installed and running in your WSL environment (sudo service postgresql start)
 
 1. **Navigate into the Rails application:**
 ```bash
