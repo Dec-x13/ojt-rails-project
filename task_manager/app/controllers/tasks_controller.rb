@@ -1,11 +1,13 @@
 class TasksController < ApplicationController
   before_action :require_login
   def index
-    @tasks = Task.all
+    @tasks = Task.includes(:comments, :sub_tasks).all
   end
 
   def new
     @task = Task.new
+    # This builds 3 empty sub-tasks in memory so the form has fields to render
+    3.times { @task.sub_tasks.build }
   end
 
   def create
@@ -50,6 +52,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.expect(task: [ :title, :description ])
+    params.require(:task).permit(:title, :description, sub_tasks_attributes: [ :id, :title, :completed, :_destroy ])
   end
 end
