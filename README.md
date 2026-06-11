@@ -28,7 +28,7 @@ If you want to read my in-depth daily reflections, roadblocks, and lightbulb mom
 - [x] **Day 7:** Controllers, Views, and making things look good with Tailwind.
 - [x] **Day 8:** Active Record, Migrations, and Model relationships.
 - [x] **Day 9:** Forms, Sessions, and User Authentication.
-- [ ] **Day 10:** Finalizing the Event Manager mini-project.
+- [x] **Day 10:** Finalizing the Event Manager mini-project.
 
 ## Projects Inside
 
@@ -42,6 +42,9 @@ Phase 1: Before jumping into the heavy Rails framework, I built a few CLI script
 Phase 2:
 * **Task Manager (Rails):** A complete web application engineered to feel like a modern Single Page Application (SPA). It uses crisp, block-level dashboard cards styled around a structured "TechNavy" theme.
   * **Custom Authentication:** Developed a secure, session-based login and logout system from scratch using `bcrypt` to hash passwords and protect endpoints via controller filters (`before_action :require_login`).
+  * **Advanced Nested Forms & Checklists:** Expanded the database with a `SubTask` model. Leveraged `accepts_nested_attributes_for` and `fields_for` to engineer a dynamic creation modal, allowing users to build a parent task and multiple checklist items in a single transaction.</u>
+  * **Active Record Callbacks:** Hooked into the Active Record lifecycle using an `after_create` callback to automatically generate and attach a timestamped "System initialized" security note to new tasks.</u>
+  * **Query Optimization (Solving N+1):** Profiled database requests and implemented eager loading (`.includes(:comments, :sub_tasks)`) to fetch all relational data efficiently, drastically improving application scalability.</u>
   * **State Management Toggle:** Added database state tracking by implementing an interactive task completion checkbox. Clicking the toggle hits a custom member route patch action to instantly invert the database record and update styling on the fly.
   * **Hotwire & Turbo:** Implemented zero-JavaScript asynchronous Create/Edit modals via Turbo Frames, coupled with responsive HTML5 expand/collapse data blocks to display information without page reloads.
   * **Relational Data & Strong Params:** Structured a `has_many` / `belongs_to` database association allowing an interactive "System Notes" feed to look up and attach comment fragments securely to parent tasks.
