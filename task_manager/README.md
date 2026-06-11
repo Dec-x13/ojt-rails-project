@@ -8,6 +8,9 @@ Instead of building a traditional multi-page app or using heavy client-side Java
 
 * **Custom Authentication from Scratch:** Built a full session-based login/logout system utilizing the `bcrypt` gem and Rails' built-in `has_secure_password`. It handles secure password hashing, user verification, and cross-request `flash` notifications natively.
 * **Protected Routing & Controller Filters:** Implemented a global application bouncer (`before_action :require_login`) that forces unauthenticated traffic back to the login page, keeping all user tasks and system notes locked down.
+* **Advanced Nested Forms & Checklist Architecture:** Expanded the relational database with a `SubTask` model. Leveraged `accepts_nested_attributes_for` and `fields_for` to engineer a dynamic creation modal, allowing users to build a parent task and multiple checklist action items in a single, secure database transaction.
+* **Active Record Callbacks (Backend Automation):** Hooked into the Active Record lifecycle using an `after_create` callback. The server now automatically generates and attaches a timestamped "System initialized" security note to every new task the second it commits to PostgreSQL.
+* **Query Optimization (Solving N+1):** Profiled the dashboard's database requests and identified a severe N+1 query bottleneck. Implemented eager loading (`.includes(:comments, :sub_tasks)`) in the controller to fetch all necessary relational data in just three efficient queries, drastically improving application scalability and load times.
 * **Interactive Completion Toggle:** Designed an instant, inline task completion mechanism using a custom member route and controller patch action. Clicking the custom checkbox seamlessly toggles the task's state in PostgreSQL, visually striking through the title and changing the card's theme dynamically without reloading the page.
 * **Relational Data & Nested Routing:** Upgraded the flat database structure by introducing a `Comment` model. Used Active Record `has_many` and `belongs_to` associations to link comments directly to tasks, establishing a nested network layer (`/tasks/:id/comments`) to power an interactive "System Notes" feed.
 * **Zero-JS Accordions & Modals:** Utilized Turbo Frames to handle asynchronous task creations and modifications in lightless modal overlays. Leveraged native HTML5 `<details>` components with Tailwind grouping to create sleek click-to-expand data cards that rotate custom SVG chevrons on interaction—all with zero custom JavaScript.
@@ -17,7 +20,7 @@ Instead of building a traditional multi-page app or using heavy client-side Java
 
 * **Framework:** Ruby on Rails 8
 * **Language:** Ruby
-* **Database:** PostgreSQL
+* **Database:** PostgreSQL (Optimized with Eager Loading)
 * **Security & Hashing:** Bcrypt
 * **Styling & Grid Layouts:** Tailwind CSS
 * **Asynchronous Engine:** Hotwire / Turbo Drive
