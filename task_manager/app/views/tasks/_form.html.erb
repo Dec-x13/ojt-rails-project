@@ -10,6 +10,21 @@
     <%= form.text_area :description, rows: 4, class: "w-full border border-slate-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all", placeholder: "Task specifics..." %>
   </div>
 
+  <div class="col-span-full mt-2">
+    <h3 class="text-sm font-bold text-[#041E42] uppercase tracking-wider mb-3 border-b border-slate-200 pb-2">Checklist Items</h3>
+    
+    <div class="space-y-3">
+      <%= form.fields_for :sub_tasks do |sub_task_form| %>
+        <div class="flex items-center gap-3">
+          <svg class="w-5 h-5 text-slate-300 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+          <%= sub_task_form.text_field :title, placeholder: "Add a sub-task...", class: "block w-full rounded-md border-0 py-2 px-3 text-slate-900 shadow-sm ring-1 ring-inset ring-slate-300 placeholder:text-slate-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <div class="pt-2 flex justify-end gap-3">
     <%= link_to "Cancel", tasks_path, class: "px-5 py-2.5 rounded-lg text-slate-600 font-semibold hover:bg-slate-100 transition-colors" %>
     <%= form.submit class: "bg-blue-600 hover:bg-blue-500 text-white font-bold py-2.5 px-6 rounded-lg shadow-md cursor-pointer transition duration-200" %>
