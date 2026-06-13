@@ -7,3 +7,5 @@ source "https://rubygems.org"
 gem "rspec" #testing
 gem "rubocop", require: false
 gem "pry", group: :development #debugger
+
+gem "rubocop-rails-omakase", "~> 1.1"
